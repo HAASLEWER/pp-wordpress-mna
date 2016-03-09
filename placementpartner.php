@@ -5,11 +5,11 @@
  */
 /*
 Plugin Name: Placement Partner Vacancies
-Plugin URI: http://placementpartner.co.za/clients/wordpress-plugin
+Plugin URI: http://www.mandelbrot.co.za
 Description: Add your Placement Partner vacancies to Wordpress.
-Author: Anton Menkveld
+Author: Mandelbrot Technologies (Pty) Ltd
 Version: 1.0
-Author URI: http://thoughtadvance.com/
+Author URI: http://www.mandelbrot.co.za
 Licence: GPL2
 
 Copyright 2012  Parallel Software (Pty) Ltd  (email : tech@parallel.co.za)
