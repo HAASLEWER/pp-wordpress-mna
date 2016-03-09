@@ -4,22 +4,18 @@
  * @author Anton Menkveld
  *
  */
-class placementpartner_vacancies_region_shortcodes {
+class placementpartner_vacancies_all_shortcodes {
 	
 	function vacancy_detail() {
-		if(!empty($_GET['region'])) {
-			$ad = self::_getVacancy(trim($_GET['region']));
+			$ad = self::_getVacancy();
 			$logo_url = get_option('siteurl').'/wp-content/plugins/placementpartner/vacancies/includs/images/logo.jpg';
 			//Get the branding options
             $branding_options = get_option('placementpartner_branding_options');
             //get full details template
             include('single.php');
-		} else {
-			return "Vacancy not found on Placement Partner Server";
-		}
 	}
 	
-	function _getVacancy($id) {
+	function _getVacancy() {
 		$connectionError = false;
 		$authenticationError = false;
 		$functionError = false;
@@ -48,34 +44,30 @@ class placementpartner_vacancies_region_shortcodes {
 				} else {
 					// Get the vacanies from the Placement Partner server
 					// Remove any / from vacancy ref and replace with %
-					$id_arr = explode('/', $id);
-					$id_val = $id_arr[0].'%';
+					//$id_arr = explode('/', $id);
+					//$id_val = $id_arr[0].'%';
 
 					// Retrieve list of regions
-					$regions_response = $pp->getAdvertRegions($session_id);
+					//$regions_response = $pp->getAdvertRegions($session_id);
 
 					// Create an array representing the key-value pairs
-					$regions = array();
+					/*$regions = array();
 					foreach($regions_response as $region) {
 						$regions[$region["id"]] = $region["label"];
 						if ($region["label"] == $_GET['region']) {
 							$region_id = $region["id"];
 						}
-					}
+					}*/
 
 					// Get the vacanies from the Placement Partner server
 					// TODO: Give user the option for sorting.
 					$filter = array(
-								array(
-									'Gauteng' => array(
-										'field' => 'region',
-										'operator' => '=',
-										'value' => $region_id,
-									)
-								)								
-							);
+										"field" => "entries_per_page",
+										"operator" => "",
+										"value"=> "0"
+								);
 
-					$vacancy = $pp->getAdverts($session_id, array($filter[0]["Gauteng"]));
+					$vacancy = $pp->getAdverts($session_id, array($filter));
 
 					$err = $pp->getError();
 					if ($err) {
@@ -101,9 +93,6 @@ class placementpartner_vacancies_region_shortcodes {
 			return false;
 		}
 
-		if (empty($vacancy)) {
-			echo '<h3 style="text-align:center;">No vacancies for this region.</h3>';
-		}
 		return $vacancy;
 	}
 }

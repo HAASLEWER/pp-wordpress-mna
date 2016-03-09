@@ -30,6 +30,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 require_once('vacancies/placementpartner_vacancies_widget.php');
 require_once('vacancies/placementpartner_vacancies_shortcodes.php');
 require_once('vacancies/placementpartner_vacancies_region_shortcodes.php');
+require_once('vacancies/placementpartner_vacancies_all_shortcodes.php');
 require_once('vacancies/placementpartner_vacancies_search_shortcodes.php');
 require_once('admin/placementpartner_admin.php');
 require_once('nusoap/nusoap.php');
@@ -83,3 +84,4 @@ add_option('placementpartner_advanced_options', $webservice, '', 'yes');
 add_shortcode('placement_partner_vacancy_detail', array('placementpartner_vacancies_shortcodes', 'vacancy_detail'));
 add_shortcode('placement_partner_vacancy_detail_region', array('placementpartner_vacancies_region_shortcodes', 'vacancy_detail'));
 add_shortcode('placement_partner_vacancy_search', array('placementpartner_vacancies_search_shortcodes', 'search_detail'));
+add_shortcode('placement_partner_vacancy_detail_all', array('placementpartner_vacancies_all_shortcodes', 'vacancy_detail'));

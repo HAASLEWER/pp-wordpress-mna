@@ -8,9 +8,9 @@ $right_content = array();
 foreach ($ad as $key => $value) {
     $left_content_list .= '<div class="left-item" id="left-item' . $key . '" onclick="displayContent(' . $key . ')" style="cursor: pointer; padding: 10px; padding-left: 0px; border-bottom: #ccc 1px solid"><div class="left-item-job">' . $value["job_title"] . '</div><div class="left-item-location" style="">' . $value["town"] . ', ' . $value["region"] . '</div></div>';
     $right_content[$key] = '<div class="right-content" style="margin-left: 60px; margin-top: 10px;">
-                         <div class="right_heading" style="font-size: 24px; color: #649087; margin-bottom: 10px;">
+                         <div class="right_heading" style="font-size: 24px; margin-bottom: 10px;"><h2>
                             ' . $value["job_title"] . 
-                         '</div>
+                         '</h2></div>
                           <div class="right_sub_heading">
                             ' . $value["sector"] . 
                          '</div>
@@ -34,7 +34,7 @@ foreach ($ad as $key => $value) {
                          <div class="vac_apply">
                             <h2>Apply now</h2>
                             <p>To apply for the above mentioned vacancy, you will need to fill in a few details and attach an up-to-date CV.</p>
-                            <a href="https://www.placementpartner.co.za/wi/submit_cv_form.php?id=mna&VacRef=' . $value["vacancy_ref"] . '/LW" target="_blank" class="apply_now" style="font-size: 18px; font-weight: bold; color: #fff; background: #7da89f; padding: 5px 10px 8px 10px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;">Apply now</a>
+                            <a href="https://www.placementpartner.co.za/wi/submit_cv_form.php?id=mna&VacRef=' . $value["vacancy_ref"] . '/LW" target="_blank" class="apply_now" style="font-size: 18px; font-weight: bold; color: #fff; background: #41464B; padding: 5px 10px 8px 10px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;">Apply now</a>
                          </div>
                          <br />
                          <br />
@@ -56,7 +56,7 @@ echo
 <script type="text/javascript">
 
 (function($){ 
-    $("#left-item0").css("background-color", "#ecf7f3");
+    $("#left-item0").css("background-color", "#d9d9d9");
     $("#left-item0").css("padding-left", "10px");
     $("#left-item0").addClass("clicked");
 })(jQuery); 
@@ -68,7 +68,7 @@ function displayContent(key) {
         $(".left-item").css("background-color", "inherit");
         $(".left-item").css("padding-left", "0px");
         $(".left-item").removeClass("clicked");
-        $("#left-item" + key).css("background-color", "#ecf7f3");
+        $("#left-item" + key).css("background-color", "#d9d9d9");
         $("#left-item" + key).css("padding-left", "10px");
         $("#left-item" + key).addClass("clicked");
         $(".content-view").fadeOut("fast");
@@ -81,7 +81,7 @@ function displayContent(key) {
     $(".left-item").hover(function(e) {
         if ($(this).hasClass("clicked")) { return; };
         $(this).animate({ "padding-left": "10px" }, 300);
-        $(this).css("background-color", "#ecf7f3");
+        $(this).css("background-color", "#d9d9d9");
     }, function(e) {
         if ($(this).hasClass("clicked")) { return; };        
         $(this).animate({ "padding-left": "0px" }, 300);
