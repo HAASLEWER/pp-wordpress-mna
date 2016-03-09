@@ -1,0 +1,50 @@
+<style>
+	.vacancies_wait {
+		width: 100%;
+		text-align: center;
+		vertical-align: middle;
+	}
+	.vacancy_item {
+		text-align: left;
+	}
+	.jobtitle {
+		font-size: 1.2em;
+		margin-top: 0px;	
+		margin-bottom: 0px;
+		padding: 0px;
+	}
+	.location {
+		font-size: 0.9em;
+		margin-top: 5px;	
+		margin-bottom: 0px;	
+	}
+	.brief {
+		font-size: 0.9em;
+		margin-top: 5px;
+	}
+	.more_link {
+		text-align: right;
+		font-size: 0.8em;
+	}
+	.vac_hr {
+		margin-top: 0px;	
+		margin-bottom: 10px;	
+	}
+	
+</style>
+
+<div id="placementpartner_vacancies" class='vacancies_wait'>
+	<div id="placementpartner_vacancies_wait" style="position: relative; top: 32px;	height: 100px;">
+		<a href="http://www.placementpartner.co.za" target="_blank"><img src="<?php echo plugins_url('placementpartner/images/pp_wait.gif');?>"></a>
+		<p style="font-size: 0.8em; color: #999999">Loading jobs...</p>
+	</div>
+	<div id="placementpartner_vacancies_list" style="display: none;">
+		<div class="vacancy_item" id="placementpartner_vacancy_item">
+			<div class="jobtitle" id="job_title">Job Title</div>
+			<div class="location" id="town">Location</div>
+			<div class="brief" id="brief_description">This is a brief description of the job. You should enter something here to get the candidate to click on more!</div>
+			<div class="more_link" id="more_link"><a>more...</a></div>
+			<hr class="vac_hr">
+		</div>
+	</div>
+</div>

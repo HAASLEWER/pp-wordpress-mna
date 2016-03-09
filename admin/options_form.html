@@ -1,0 +1,12 @@
+<div class="wrap">
+<h2>Placement Partner Plugin Adminstration</h2>
+<form method="post" action="options.php">
+<?php
+	settings_fields('placementpartner_admin_group');
+	do_settings_sections('placementpartner_admin_page');
+?>
+<p class="submit">
+<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+</p>
+</form>
+</div>
