@@ -67,15 +67,18 @@ class placementpartner_vacancies_region_shortcodes {
 					// TODO: Give user the option for sorting.
 					$filter = array(
 								array(
-									'Gauteng' => array(
-										'field' => 'region',
-										'operator' => '=',
-										'value' => $region_id,
-									)
-								)								
+									'field' => 'region',
+									'operator' => '=',
+									'value' => $region_id,
+								),
+								array(
+									"field" => "entries_per_page",
+									"operator" => "",
+									"value"=> "0"
+											)																
 							);
 
-					$vacancy = $pp->getAdverts($session_id, array($filter[0]["Gauteng"]));
+					$vacancy = $pp->getAdverts($session_id, $filter);
 
 					$err = $pp->getError();
 					if ($err) {
